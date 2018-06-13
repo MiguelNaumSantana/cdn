@@ -1,16 +1,52 @@
-function funcao1()
+function input()
 {
-alert("Eu sou um alert!");
-}
-
-function input(){
-    $('body').append('<div>\
+ $('body').append('<div>\
                                 <input id=entrada type="text" name="campo[]">\
                                 \
                                 </div><span id="saidaTxt">Nenhum resultado...</span>');
+}
+function pesquisa(array){
+  $(document).ready(function(){
+  $('#entrada').bind('input',function(){
+    busca = $(this).val().toLowerCase();
+    
+    if(busca !== ''){
+      var corresponde = false;
+      var saida = Array();
+      var quantidade = 0;
+      for(var key in array){
+        
+        corresponde = array[key].toLowerCase().indexOf(busca) >= 0;
+        if(corresponde){
+          saida.push(array[key]);
+          quantidade += 1;
+        }
+      }
+      if(quantidade){
+        $('#saidaTxt').text('');
+        $('#quantidade').html(quantidade+' resultados!<br><br>');
+        for(var ind in saida){
+           $('#saidaTxt').append("<li>"+saida[ind]+"</li>"+"<br>");
+        }
+        
+      }else{
+        $('#quantidade').html('');
+        $('#saidaTxt').text('Nenhum resultado...');
+      }
+    
+    }else{
+      $('#quantidade').html('');
+      $('#saidaTxt').text('Nenhum resultado...');
+    }
+    
+    
+    
+  });
+});
+}
 
-
-
+function lfa(){
+   input();
 // Code goes here
 var busca = null;
 var array = ["(Poscomp 2012) - Seja o espaço vetorial V = R2. Com relação a esse espaço, assinale a alternativa correta.R: V é soma direta de S1 = {(x, y) ∈  R2|(x, y) = (x, 0)} e S2 = {(x, y) ∈  R2|(x, y) = (0, y)} ",
@@ -176,62 +212,92 @@ var array = ["(Poscomp 2012) - Seja o espaço vetorial V = R2. Com relação a e
 "regras de produção ao lado, em que os símbolos não-terminais são S, A e B, e os símbolos terminais são a e b.S → ABAB →AABA → aB → bConsidere as seguintes afirmações:I - A gramática G é uma gramática dependente de contexto.II - a cadeia aabbb é gerada por essa gramática.III - a gramática G gera a cadeia nula.IV – As palavras da Linguagem L(w) = {w | w = a+b} pertencem à Linguagem gerada pela gramática G.R-Apenas I e IV;",
 ]
 
+pesquisa(array);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function(){
-  $('#entrada').bind('input',function(){
-    busca = $(this).val().toLowerCase();
-    
-    if(busca !== ''){
-      var corresponde = false;
-      var saida = Array();
-      var quantidade = 0;
-      for(var key in array){
-        
-        corresponde = array[key].toLowerCase().indexOf(busca) >= 0;
-        if(corresponde){
-          saida.push(array[key]);
-          quantidade += 1;
-        }
-      }
-      if(quantidade){
-        $('#saidaTxt').text('');
-        $('#quantidade').html(quantidade+' resultados!<br><br>');
-        for(var ind in saida){
-           $('#saidaTxt').append("<li>"+saida[ind]+"</li>"+"<br>");
-        }
-        
-      }else{
-        $('#quantidade').html('');
-        $('#saidaTxt').text('Nenhum resultado...');
-      }
-    
-    }else{
-      $('#quantidade').html('');
-      $('#saidaTxt').text('Nenhum resultado...');
-    }
-    
-    
-    
-  });
-});
+function ia(){
+  input();
+  var busca = null;
+var array = [
+  "Considere que a figura abaixo corresponde ao cenário de um jogo de computador. Esse cenário é dividido em 24 quadrados e a movimentação de um personagem entre cada quadrado tem um custo 1, sendo permitida apenas na horizontal ou na vertical. Os quadrados marcados em preto correspondem a regiões para as quais os personagens não podem se mover.Neste cenário, o algoritmo A* vai ser usado para determinar o caminho de custo mínimo pelo qual um personagem deve se mover desde o quadrado verde até o quadrado vermelho. Considere, no A*, o custo f(x) = g(x) + h(x) de determinado nó x é computado somando-se o custo real g(x) ao custo da função heurística h(x) e que a função heurística utilizada é a distancia de Manhattan (soma das distancias horizontal e vertical de x até o objetivo). Desse modo, o custo f(x) do quadrado verde é igual aR->3",
+  "Sobre Algoritmos de Busca Local e Problemas de Otimização podemos afirmar que:I. A própria descrição de estado contém toda informação relevante para a solução e o caminho ao estado-objetivo não interessa:II. A ideia é começar com de qualquer estado (configuração completa, solução aceitável), e melhorá-lo iterativamente.III. Os estados estão representados sobre uma superfície (gráfico)IV. A altura de qualquer ponto na superfície corresponde à função de avaliação do estado naquele ponto. O algoritmo se “move” pela superfície em busca de pontos mais altos (objetivos). O ponto mais alto (máximo global) corresponde à solução ótima, nó onde a função de avaliação atinge seu valor máximoQuais das afirmações acima está correta?R-I, III e IV.",
+  "Sobre os seguintes tipos de Busca Local:I. Hill-Climbing: Subida pela Encosta mais Íngrime (ou Busca Local Gulosa)II. Simulated Annealing: Têmpera SimuladaIII. Local Beam Search: Busca em feixe localIV. Algoritmos Genéticos (GA)R-I. Só faz modificações que melhoram o estado atual.II. Pode fazer modificações que pioram o estado no momento, para possivelmente melhorá-lo no futuro.III. Mantém k estados em vez de um único.IV. É uma busca subida da encosta, estocástica, na qual uma grande população de estados é mantida e novos estados são gerados por mutação ou cruzamento",
+  "Em sistemas de informação o 'dado' se transforma em informação através de um processamento. Em IA a informação pode ser transformada em:R-	Conhecimento específico acerca de um dominio de problemas",
+  "Inteligência Artifical resolve diversos problemas que ajudam o ser humano em suas tarefas cotidianas. Qual das alternativas abaixo é a correta?R-Sistema de freios ABS, Comando de voz no celular e ao ligar o carro, Detector de faces e sorrisos em cameras digitais.",
+  "Inteligência Artificial é uma sub-área da ciência da computação que permite criar agentes de software que tentam simular o comportamento humano considerado inteligente.”  Tendo como base esta definição, quais as sub-área da Inteligência Artificial?R-Sistemas Baseados em Conhecimento e Processamento de Linguagem Natural.",
+  "Espaço de estados pode representar as 'regras do jogo' para um dado problema. Porém sua representação pode mudar sendo dependente de:R-Uma linguagem de programação",
+  "A representação do conhecimento por espaço de estados é um modelo que pode ser implementado por uma estrutura de dados. Escolha a alternativa correta para informar qual estrutura de dados utilizada.R-Árvore Binária",
+  "A resolução de problemas em Inteligência Artificial inicia-se em construir e pesquisar o Espaço de Estados do problema. Sobre Espaço de Estados podemos afirmar que:I. É uma forma de representar conhecimento sob um domínio específico de problemas;II. É o conjunto de todos os estados pesquisados a partir de um estado inicial.III. É um grafo onde os nós são estados e os arcos entre os nós são ações (Executando as ações, há transição de um estado para o outro);IV. O caminho (path) do espaço de estados é a sequência de estados que são conectados por uma sequência de ações.Quais das afirmações acima estão incorretas?R-Nenhuma",
+  "Busca é um mecanismo geral de pesquisa em árvore. Sobre Busca podemos afirmar que:I. Uma busca inicia-se na escolha de um estado inicial. Após aplica uma sequência de ações com o intuito de se construir um ramo na árvore que conduz a um estado objetivo;II. Existe diversas buscas no espaço de estados, mas as buscas clássicas são: Largura (Breadth-First Search) e a Profundidade (Depth-First Search);III. Profundidade e Largura são conhecidas como buscas informadas, pois são guiadas por conhecimento.Quais das afirmações acima estão corretas?R-I e II.",
+  "Tendo com base o gráfo abaixo. Qual é o caminho que leva do estado inicial 'A' p[ara o 'B' com o uso de uma política de busca em largura?R-Caminho = {A,B,C,D,E,F,G}",
+  "A busca em largura é classificada como uma 'busca cega', onde o conhecimento sobre o problema não é considerado. Entretanto este tipo de busca pode ser util em problemas com algumas caracteristicas. Quais caracteristicas podemos enunciar?R-Espaço de estados finito e as ações tem o mesmo custo",
+  "Para resolver um problema cujo espaço de estados tende ao infinito, qual das estratégias de buscas cegas seriam mais apropriadas, caso o nó objetivo encontra-se em profunidade próxima à superfície do espaço de estados? R-Busca em profundidade iterativa",
+  "Na Análise da Complexidade do Algoritmo em Inteligência Artificial devemos considerar:I. ComplexidadeII. OtimizaçãoIII. TempoIV. EspaçoOnde, cada item significa:R-I. Caso a solução existir, o algoritmo encontra a solução;II. A solução de menor custo é encontrada pelo algoritmo;III. É a medida de tempo em que o algoritmo leva para encontrar a solução no pior caso;IV. Quanto o algoritmo ocupa de memória.",
+  "Com relação a análise da complexidade, otimização, tempo e espaço do Algoritmo Busca em Profundidade, podemos afirmar que:R-Ele não é completo, não é ótimo, tem tempo O(bd+1) e espaço O(bm), onde b = fator de ramos (ramificação) e d = profundidade do estado meta",
+  "Conceitue Heuristica referente a busca no espaço de estados.R-Heuristica é um modelo matemático idealizado para criar um caminho com atalhos no espaço de estados.",
+  "Em um dado problema necessitamos resolvê-lo com o uso de heuristica. Quantas heuristicas podemos ter para resolver um único problema?R-	Quantas heuristica o problema necessitar",
+  "Uma das formas de avaliação das buscas em inteligência artificial é através de critérios bem estabelecidos.Quais são os critérios de avaliação no que diz respeito a complexidade de uma estratégia de busca?R-Completo, Ótimo, Complexidade de Tempo e Espaço",
+  "A busca A* é uma pesquisa em árvore que considera informações globais e locais. A busca A*´somente é completa se:R-A heuristica é consistente",
+  "O algoritmo A* pode ser implementado através de uma estrutura de dados do tipo árvore.juEscolha a alternativa correta que demonstre esta estrutura de dados.R-struct node{int item;struct node *esq, *dir}",
+  "Considere as buscas informadas(Gulosa e A*) e não informadas (Profundidade, Largura)  e analise os itens a seguir.I - A busca gulosa expande os nós próximos a superfície de maior custoII - A* expande os nós de acordo com a heurística f(n) = g(n) + h(n)III - Busca Gulosa é eficiente na maioria das vezes, mas não garante a escolha de menor custoIV - A complexidade algoritmo da busca A* é exponencial mas pode melhorar de acordo com a heuristicaEstão certos apenas os itens:R-II e III",
+  "Considere um jogo do tipo 8-puzzle, cujo objetivo é conduzir o tabuleiro esquematizado na figura abaixo para o seguinte estado final.12384765Considere, ainda, que, em determinado instante do jogo, se tenha o estado E0 a seguir.34658217Pelas regras desse jogo, sabe-se que os próximos estados possíveis são os estados E1, E2 e E3 mostrados abaixo.34658217E134658721E234586217E3Considere uma função heurística h embasada na soma das distâncias das peças em relação ao estado final desejado, em que a distância d a que uma peça p está da posição final é dada pela soma do número de linhas com o número de colunas que a separam da posição final desejada. Por exemplo, em E1, d(1) = 2 + 1 = 3. A partir dessas informações analise as asserções a seguir. Utilizando-se um algoritmo de busca gulosa pela melhor escolha que utiliza a função h, o próximo estado no desenvolvimento do jogo a partir do estado E0 tem de ser E3 porque,dos três estados E1, E2 e E3 possíveis, o estado com menor soma das distâncias entre a posição atual das peças e a posição final é o estado E3.Assinale a opção correta a respeito dessas asserções.R-As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+  "Julgue os itens a seguir, relativos a métodos de busca com informação (busca heurística) e sem informação (busca cega), aplicados a problemas em que todas as ações têm o mesmo custo, o grafo de busca tem fator de ramificação finito e as ações não retornam a estados já visitados.            I.            A primeira solução encontrada pela estratégia de busca em largura é a solução ótima.            II.            A primeira solução encontrada pela estratégia de busca em profundidade é a solução ótima.            III.            A estratégia de busca gulosa é eficiente porque expande apenas os nós que estão no caminho da solução.            IV.  As estratégias de busca com informação usam funções heurísticas que, quando bem definidas, permitem melhorar a eficiência da busca.Estão certos apenas os itens:R- I e III.",
+  " Capacitar o computador a executar funções que são desempenhadas pelo ser humano usando conhecimento e raciocínio. A definição acima se refere a que tipo de pesquisa:R-inteligencia artifical",
+  "Baseada nas três informações abaixo assinale a alternativa correspondente:I.   Um algoritmo de busca em profundidade limitada possui nós sem sucessores, pois, estão no limite estabelecido na definição do algoritmo. Esta abordagem pode adicionar um fator deincompleteza. Isto só ocorrerá quando l < p , ou seja, a profundidade para o limite estabelecido é menor que a profundidade do nó objetivo mais raso.II.  A busca em profundidade limitada será ótima para l > p.III. A busca bidirecional é apropriada para problemas onde o predecessor de cada nó pode ser computável eficientemente; quando as ações são facilmente reversíveis.R-As afirmações I e III estão corretas e a afirmação II está errada",
+  "A característica que melhor apresenta um AGENTE DE RESOLUÇÃO DE PROBLEMAS é:R-Apresentar (ou retornar) uma seqüência de ações para solução de um problema como conseqüência de uma ou mais percepções extraídas de seu ambiente",
+  "A grande dificuldade na implementação de um modelo racional em Inteligência Artificial é a implementação da condição de um raciocínio lógico que resulte em um resultado exato. Para tanto o algoritmo de Aristóteles ainda é atual e aplicado no desenvolvimento de muitos Sistemas Inteligentes conhecidos atualmente.",
+  "  Para a elaboração de um algoritmo de busca em árvore, os nós são constituídos de 4 elementos (informações). Assinale a alternativa, onde o elemento apresentado NÃO constitui um elemento do nó em uma árvore de busca.R-espacos de estados",
+  "Considere um algoritmo genético que opera sobre três indivíduos A, B, C, descritosrespectivamente pelos vetores bináriosA = [11011000], B = [00010000], C = [11001101],gerando dois novos indivíduos D = [11011001] e E = [11011000]Os novos indivíduos foram gerados através de:R-Crossover pelo ponto central dos indivíduos A e C seguido de mutação de um bit em cada novo indivíduo (D e E);",
+  "O processo de expansão em uma árvore de busca consiste em:R-Ocorre após a verificação do NÓ e consiste na geração da borda que é uma seqüência de nós proveniente do NÓ-PAI. Cada nó desta borda é conhecido por NÓ-FOLHA.",
+  "Assinale a alternativa ERRADA com relação aos algoritmos de busca sem informação:R-A busca em profundidade sempre será completa, pois, sua estrutura permite, sempre, a obtenção de um caminho que represente a solução do problema.",
+  "A diferenciação entre os vários algoritmos de busca é baseada:R-Na estratégia que determina a forma em que os nós serão verificados e expandidos. Esta estratégia pode ser baseadas ou não em informações prévias contidas nestes nós (com informação ou sem informação).",
+  "Baseada nas três informações abaixo assinale a alternativa correspondente:Um algoritmo de busca em profundidade limitada possui nós sem sucessores, pois, estão no limite estabelecido na definição do algoritmo. Esta abordagem pode adicionar um fator de incompleteza. Isto só ocorrerá  quando l < p , ou seja, a profundidade para o limite estabelecido é menor que a profundidade do nó objetivo mais   raso.A busca em profundidade limitada será ótima para l > p. O comportamento de seu algoritmo não tem nenhuma semelhança com um algoritmo de busca em profundidade genérico.O algoritmo de busca em profundidade limitada  pode ser implementado como uma modificação simples do      algoritmo geral de busca em árvore.  R-As afirmações I e III estão corretas e a afirmação II está errada",
+  "função BUSCA-EM-PROFUNDIDADE- LIMITADA (problema, limite)retorna uma solução ou falha/corte                retornar BPL-RECURSIVA(CRIAR-NÓ(ESTADO-INICIAL[problema]), problema, limite)função BPL-RECURSIVA(nó,problema,limite)retorna uma solução ou falha/corte                corte_ocorreu? ¬ falso                se TESTAR-OBJETIVO[problema](ESTADO[nó]) então retornar SOLUÇÃO(nó)                senão se PROFUNDIDADE[nó] = limite então retornar corte                senão para cada sucessor em EXPANDIR(nó,problema) faça                resultado ¬ BPL-RECURSIVA(sucessor,problema,limite)                se resultado = corte então corte_ocorreu? ¬ verdadeiro                senão se resultado ¹ falha então retornar  resultado                se corte_ocorreu? então retornar corte senão retornar falhaAssinale a alternativa que representa a afirmação errada com base no algoritmo acima:R-A definição de uma função recursiva (função BPL-RECURSIVA) é feita com o propósito de economizar memória, este conceito de função recursiva só é passível de aplicação em algoritmos de Busca em Profundidade Limitada.",
+  "Dentre as definições a seguir, conceitos de computação evolutiva da Inteligência Artificial, qual delas é incorreta?R-A roleta é um método de seleção no qual se atribui a cada individuo de uma população uma probabilidade de passar para a próxima geração proporcional ao seu fitness, medido em relação a somatória do fitness de todos os indivíduos da população. Assim, algoritmos genéticos são métodos de busca puramente aleatórios.",
+  "A função de avaliação em um algoritmo de busca gulosa consiste em:R-Uma função heurística, h(n) que representa a menor distância em linha reta, hDLR, entre o nó e o nó-objetivo .",
+  "Uma heurística h(n) é dita admissível se, e somente se:R-Nunca superestime o custo para alcançar o objetivo.",
+  "Considere h(x) como uma função heurística que define a distância de x até a meta; considere ainda hr(x) como a distancia real de x até a meta. h(x) é dita admissível  se e somente se:R-n h(n) £ hr(x)",
+  "Analise o seguinte conjunto de afirmativas caracterizando agentes computacionais e os ambientes em que operam.I. Um agente reflexivo que não dispõe de modelo de seu ambiente seleciona a próxima ação que vai executar tendo por base apenas as suas percepções atuais.II. Um agente capaz de planejar sequencias futuras de ações não pode e não deve ter representações   explícitas de seus objetivos.III. Um ambiente determinístico é aquele que permite a um agente, que se encontra sozinho no ambiente, saber o resultado de uma ação realizada a partir do conhecimento do estado do ambiente no momento em que a a¸c˜ao foi realizada e das características da ação que o agente realizou.IV. Um ambiente parcialmente observável é aquele que só permite a um agente conhecer completamente o estado atual do ambiente se o agente estiver sozinho no ambiente.V. Uma função de utilidade é uma função que ajuda um agente a distinguir quais percepções atuais são mais importantes para a realização dos objetivos do agente.A esse respeito, pode-se concluir que estão CORRETASR-	somente as afirmativas I e III.",
+  "Considere o algoritmo A* (A Estrela / A Star) usado para a busca de uma trajetória (pathfinding), sendo aplicado sobre um mapa do tipo grade de ocupação, com custos de passagem associados a cada uma das células da grade e com a seguinte configuração de nodos listados no conjunto em aberto (open-set):Nodo 1: g(1)=19; h(1)=6; L=6; C=8Nodo 2: g(2)=18; h(2)=4; L=7; C=9Nodo 3: g(3)=13; h(3)=5; L=5; C=10Nodo 4: g(4)=16; h(4)=3; L=9; C=8Nodo 5: g(5)=16; h(5)=3; L=10;C=7onde “L” e “C” são a linha e coluna do respectivo nodo dentro da grade de ocupação.A posição alvo a ser alcançada dentro da trajetória deste exemplo é definida pela linha e coluna L_Alvo=10 e C_Alvo=10, ou seja, a coordenada (10,10). “g(n)” representa o custo (gasto) do caminho percorrido e “h(n)” representa a estimativa heurística de custo até o alvo da célula em questão, sendo que “n” representa o número do nodo que identifica as células, e esta célula ocupa uma determinada posição (L,C) dentro da grade.Qual dos seguintes nodos será selecionado do conjunto em aberto como sendo o próximo nodo a ser avaliado, depois removido do conjunto de nodos em aberto (open-set) e colocado na lista de nodos já visitados (closed-set)?R-Nodo3",
+  "Um problema de busca é especificado através destes componentes: (a)um conjunto de estados; (b)um conjunto de operações; (c)um estado inicial e (d)um conjunto de estados meta. Assinale a alternativa correta, considerando um jogo da velha:R-As operações possíveis são marcar X ou O nos espaços vazios.",
+  "Algoritmo Busca(Meta,Problema) retorna Solução ou Falha.    Declare a variavel  P do tipo PilhaInícioAlgoritmoP ¬ EstadoInicial;  { obs: ¬ significa atribuição }RepitaSe a pilha P não está vazia, então            x ¬ Topo(P)            remover o topo da pilha P        Se x contém uma Meta, então            retornar a solução x        Senão        expandir x, segundo as regras do Problema e adicionar os filhos de x no topo da pilha P            FimSeSenão            Retorne FalhaFimSeFimRepitaFim AlgoritmoO Algoritmo Busca é um algoritmo:R- de Busca Cega em Profundidade",
+  ":Considere as seguintes afirmativas:I) O uso de funções heurísticas amenizam o problema de explosão combinatória dos algoritmos de busca.II)O algoritmo de busca em profundidade utiliza mais memória que o de busca em largura.III)O algoritmo de busca em largura sempre encontra a melhor solução.Estão corretas as afirmativas:R- I e III apenas",
+  "Qual abordagem que se adota em Inteligência Artificial para Sistemas que pensam como humanosR-A abordagem da Inteligência Artificial que procura a reprodução dos processos de pensamento humano.",
+  "Qual abordagem que se adota em Inteligência Artificial para Sistemas que pensam racionalmenteR- abordagem da Inteligência Artificial que procura a reprodução dos mecanismos de raciocínio humanos.",
+  "Qual abordagem que se adota em Inteligência Artificial para Sistemas que agem racionalmenteR-A abordagem da Inteligência Artificial que procura medir o sucesso conforme um conceito ideal de inteligência.",
+  "O Teste de Turing antecipou basicamente todas as grandes questões da IA. Dentre as alternativas abaixo, qual delas náo faz parte das grandes questões que ele antecipou.:R-Programação Linear",
+  "Agente baseado em modelo é definido comoR-	Um agente cuja ação é derivada diretamente de um modelo interno do estado atual do mundo, que é atualizado durante o tempo",
+  "Agente baseado em objetivos é definido comoR-Um agente que seleciona ações que ele acredita alcançarão objetivos explicitamente representados",
+  "São métodos adaptativos que podem ser usados para resolver problemas de busca e otimização. Estão inspirados no processo genético e evolutivo de organismos vivos. Tal definição aplica-se à:R-Algoritmos genéticos.",
+  "Agente que Aprende é definido comoR-Um agente cujo comportamento melhora ao longo do tempo baseado em sua experiência",
+  "Agente Reflex é definido comoR-Um agente cujas ações dependem somente da percepção atual",
+  "No projeto de Agentes Inteligentes, o que signica considerar um Ambiente completamente observável ou AcessívelR-Quando os sensores do agente conseguem perceber o estado completo do ambiente",
+  "No projeto de Agentes Inteligentes,o que significa considerar um Ambiente estáticoR-O ambiente que não muda enquanto o agente está escolhendo a ação a  realizar",
+  "No projeto de Agentes Inteligentes, o que significa considerar um Ambiente discretoR-Quando existe um número distinto e claramente definido de percepções e ações em cada turno",
+  "Quais das alternativas abaixo náo se refere as características da Busca em Profundidade R-A borda (fringe) é uma fila do tipo FIFO.",
+  "Dentre as características abaixo, qual na se refere a Busca em LarguraR-A borda (fringe) é uma fila do tipo LIFO ou Pilha (Stack).",
+  "Qual das alternativas abaixo não se refere aos itens necessários para formular uma estratégia de busca,R-	Tabela de Hash",
+  "Na implementação das estratégias de busca, a função Expande ou o termo expandir significa:R-Criar novos nós, preencher os vários campos, usar os OPERADORES (ou FUNÇÃO-SUCESSOR) do problema para criar os estados correspondentes.",
+  "Entre as propriedades da Busca A* (A-estrela) não consta:R-É uma busca de melhor primeiro que é ótima e incompleta",
+  "Dentre as propriedades da Busca Local (Genérica) não se aplica:R-Não se aplica em problemas com espaços de estados grandes ou infinitos.",
+  "Dentre as propriedades da Busca Subida da Encosta (Hill Climbing) não está:Não fica presa em Máximos Locais, Platôs e Arestas.",
+  "Dentre as propriedades da Busca Subida da Encosta (Hill Climbing) não está:R-Escolhe entre o conjunto de melhores sucessores se houver mais do que um.",
+  "Sobre a Busca Subida de Encostanão podemos afirmar:R-Não pode ser considerada Ótima para problemas de Otimização.",
+  "Dentre as propriedades Abaixo:I - Busca local que pode fazer modificações que pioram o estado temporariamente, para possivelmente melhorá-lo no futuro.II - Oferece meios para se escapar de máximos locais -- retrocede para escapar.III - É um algoritmo ótimo e completo se o mapeamento de resfriamento tiver muitas entradas com variações suaves.Quais se apiicam  ao Algoritmo do Recozimento Simulado.R-I, II e III",
+  "Considere o grafo abaixo, onde os estados são representados por letras e as operações de mudança de estados são representados por arestas. Neste grafo, as buscas são realizadas de forma que os filhos são gerados em ordem alfabética e em um caminho não é permitido passar 2 vezes por um mesmo estado. Utilizando Busca Cega em Profundidade o primeiro caminho encontrado de C até E é:R-C,A,B,E",
+  "Dentre as propriedades dos algoritmos genéticos não estáR- A mutação é facultativa na geração de novos estados",
+  "Um algoritmo genético foi utilizado para tentar encontrar pares ordenados de números inteiros (x,y) tais que a função f(x,y)=x2/y2 dê como resultado o valor 25, com x e y dentro do intervalo de valores de 0 a 15. Os indivíduos iniciais experimentados são os pares (x,y): (1,10); (5,2); (10;3) e (15;7). A representação dos indivíduos é em binário, da seguinte forma: (x,y) = (1,10) = 0001 1010.A cada geração, mantém-se os dois indivídos mais aptos, geram-se 2 novos indivíduos com cruzamentos entres estes 2 sobreviventes e ainda pode-se fazer 1 mutação em qualquer destes quatro indivíduos.Cada mutação é feita trocando um 0 por 1 ou um 1 por 0 na representação. Destes quatro indivíduos, os 2 mais aptos passam para a nova geração.Considere as seguintes afirmações:I - Os individuos mais aptos são (10,3) e (5,2)II- Os individuos gerados por cruzamento são (10,2) e (5,3)III-São necessárias 3 ou mais gerações para encontrar um par (x,y) tal que x2/y2 =25 utilizando algoritmo genético e os indivíduos iniciais apresentados.IV- Apenas utilizando-se mutação, é possível 2 ou mais pares (x,y) tais que x2/y2 =25Estão corretas as afirmativas:R-I, II e IV",
+  "São programas evolutivos baseados na teoria de seleção natural e na hereditariedade, ou seja, partem do pressuposto que em uma dada população, indivíduos com boas características genéticas têm maiores chances de sobrevivência e de produzirem indivíduos cada vez mais aptos. A definição acima se refere a:R-Algoritmos genéticos.",
+  "Agente baseado em utilidade é definido comoR-Um agente que seleciona ações que ele acredita maximizarão a utilidade esperada do estado resultante",
+  "Em função do grau de complexidade do problema podemos dividir os agentes inteligentes em 5 categorias:I. Agente baseado em objetivos.II. Agente reativo baseado em modelos.III. Agente reativo simples.IV. Agente baseado em utilidades.V. Agente com aprendizagem.Levando em consideração o grau de complexidade, do mais simples ao mais elaborado, podemos ordenar estes agentes como segue:R-III, II, I, IV e V.",
+  "Os algoritmos genéticos visam auxiliar o processo de resolução de problemas complexos utilizando um método baseado no processo de evolução encontrado na natureza: quanto melhor um indivíduo se adaptar ao seu meio ambiente, maior será sua chance de sobreviver e gerar descendentes. Sobre os algoritmos genéticos, considere as a?rmativas a seguir.I. A representação da população inicial é uma das fases propostas pelos algoritmos genéticos em que um conjunto de k estados, chamado de população, é gerado. Cada estado (ou indivíduo) é representado como uma cadeia sobre um alfabeto ?nito.II. Algoritmos genéticos propõem que estados sucessores sejam gerados pela combinação de dois estados pais, com isso uma quantidade menor de informação ?ca armazenada na memória, quando comparado a outros algoritmos de busca.III. A de?nição da função ?tness representa a fase dos algoritmos genéticos em que cada estado da população inicial é avaliado através de sua função ?tness, que determina o valor exato de custo de cada um dos indivíduos. Essa função deve ser precisa e exata para expressar de forma real o valor de cada indivíduo dentro do domínio do problema.IV. A fase de crossover dos algoritmos genéticos determina um ponto de cruzamento, sempre de?nido de forma aleatória, com isso cada um dos cromossomos pais tem sua cadeia de bits cortada no ponto de crossover, produzindo duas cabeças e duas caudas. As caudas são trocadas, gerando dois novos cromossomos.Assinale a alternativa correta. R-Somente as a?rmativas I e II são corretas.",
+  "No contexto de algoritmos genéticos, cruzamento (ou crossover) é uma operação em que:R-	As características das soluções escolhidas são recombinadas, gerando novas soluções (ou indivíduos)."
+  
+  
+  
+  
+  
+  
+  ];
+pesquisa(array);
 }
