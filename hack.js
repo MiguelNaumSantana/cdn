@@ -144,7 +144,7 @@ function dds(){
 "Dois discos homogêneos solidamente ligados entre si, formam o sistema ilustrado, com raios R1 = 0,15 m, R2 = 0,25 m, massa m = 6 kg e momento de inércia ICM = 0,12 kg.m2. O sistema apoia-se em superfície horizontal rugosa e sob ação da força F = 55 N, rola sem escorregar. Adotar g = 10 m/s2. A força de atrito entre as superfícies, expressa em N, é aproximadamente: R= 11,67",
 "Dois discos homogêneos solidamente ligados entre si, formam o sistema ilustrado, com raios R1 = 0,15 m, R2 = 0,25 m, massa m = 6 kg e momento de inércia ICM = 0,12 kg.m2. O sistema apoia-se em superfície horizontal rugosa e sob ação da força F = 55 N, rola sem escorregar. Adotar g = 10 m/s2. O mínimo coeficiente de atrito, é aproximadamente: R= 0,19",
 ]
-pesquisar(array);
+pesquisa(array);
   
 }
 
