@@ -52,7 +52,7 @@ function pedrounip(){
   
 }
 
-function mat(){
+function dds(){
   input();
   array=["Esfera de massa m = 4 kg, raio R = 0,25 m, encontra-se apoiada em plano horizontal, com o qual apresenta coeficiente de atrito de escorregamento μ = 0,3. A esfera é acionada por força F horizontal, aplicada à distância h do piso, e desloca-se em movimento de translação, com aceleração a = 1,5 m/s2. A aceleração da gravidade tem intensidade g = 10 m/s2. A força F, expressa em N, é aproximadamente: R= 18",
 "Esfera de massa m = 4 kg, raio R = 0,25 m, encontra-se apoiada em plano horizontal, com o qual apresenta coeficiente de atrito de escorregamento μ = 0,3. A esfera é acionada por força F horizontal, aplicada à distância h do piso, e desloca-se em movimento de translação, com aceleração a = 1,5 m/s2. A aceleração da gravidade tem intensidade g = 10 m/s2. A altura h, expressa em m, é aproximadamente: R= 0,083",
